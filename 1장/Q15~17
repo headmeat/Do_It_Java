@@ -38,6 +38,32 @@ public class TriangleLB {
 		 }
 	}
 	
+	static void spira(int n) {
+		int pivot = n-1;
+		
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<2*n+1;j++) {
+				if(j>=pivot-i && j<=pivot+i) {
+					System.out.print("*");
+				}else System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	static void npira(int n) {
+		int pivot = n-1;
+		
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<2*n+1;j++) {
+				if(j>=pivot-i && j<=pivot+i) {
+					System.out.print(i+1);
+				}else System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 		int n;
@@ -47,6 +73,6 @@ public class TriangleLB {
 			n = stdIn.nextInt();
 		}while(n<=0);
 		
-		triangleRB(n);
+		npira(n);
 	}
 }
