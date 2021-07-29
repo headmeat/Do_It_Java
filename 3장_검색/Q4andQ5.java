@@ -5,51 +5,6 @@ import java.util.Scanner;
 public class SeqSearchSen {
 	static int[] a;
 	
-	/*
-	static void printShit(int pl, int pc, int pr) {
-		System.out.print("   |");
-		for(int i=0;i<2*n+1;i++)
-			System.out.print(" ");
-		
-		System.out.println("*");
-		
-		System.out.print("  "+n+"|");
-		
-		for(int i=0;i<a.length;i++) {
-			System.out.print(" "+a[i]);
-		}
-		System.out.println();
-		
-		//for()
-	}
-	
-	static int seqSearchSen(int[] a, int n, int key) {
-		//보초법 수행
-		int i;
-		
-		a[n] = key;
-		
-		System.out.print("   |");
-		for(int j=0;j<a.length;j++) {
-			System.out.print(" "+j);
-		}
-		System.out.println();
-		System.out.print("---+");
-		
-		for(int j=0;j<a.length+1;j++) {
-			System.out.print("--");
-		}
-		System.out.println();
-		
-		for(i=0;;i++) {
-			printShit(i);
-			if(a[i]==key) break;
-		}
-		
-		return i==n?-1:i;
-	}
-	*/
-	
 	static void printBinShit(int pl, int pc, int pr) {
 		System.out.print("   |");
 		for(int j=0;j<a.length;j++) {
