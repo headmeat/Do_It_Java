@@ -64,9 +64,14 @@ public class SeqSearchSen {
 		System.out.println();
 		System.out.print("   |");
 		for(int i=0;i<a.length;i++) {
-			if(i==pl) System.out.print("<-");
-			else if(i==pc) System.out.print(" +");
-			else if(i==pr) System.out.print(" ->");
+			if(i==pl) {
+				if(pl!=pc && pr!=pc) System.out.print("<-");
+				else System.out.print("<+");
+			}else if(i==pc) System.out.print(" +");
+			else if(i==pr) {
+				if(pl!=pc && pr!=pc) System.out.print("->");
+				else System.out.print("+>");
+			}
 			else System.out.print("  ");
 		}
 		
@@ -80,18 +85,25 @@ public class SeqSearchSen {
 		System.out.println();
 	}
 	
-	static int binSearch(int[] a, int n, int key) {
-		int pl = 0; int pr = n-1; int pc;
+	static int binSearch(int[] a, int n, int key, boolean first) {
+		int pl = 0; int pr = n-1; int pc; int idx = -1;
 		
 		do {
 			pc = (pl+pr)/2;
 			printBinShit(pl, pc, pr);
-			if(a[pc]==key) return pc;
+			if(a[pc]==key) {
+				if(first) {
+					idx = pc;
+					pr = pc-1;
+				}else {
+					return pc;
+				}
+			}
 			else if(a[pc] < key) pl = pc+1;
 			else if(a[pc] > key) pr = pc-1;
 		}while(pl <= pr);
 		
-		return -1;
+		return idx;
 	}
 	
 	public static void main(String[] args) {
@@ -110,7 +122,8 @@ public class SeqSearchSen {
 		System.out.print("Looking for?");
 		int key = stdIn.nextInt();
 		
-		int idx = binSearch(a, num, key);
+		//true for getting earliest element and false for getting the element found first.
+		int idx = binSearch(a, num, key, true);
 		
 		if(idx==-1) System.out.println("배열 a에 "+key+"는 없습니다.");
 		else System.out.println(key+"는 a["+idx+"]에 있습니다.");
