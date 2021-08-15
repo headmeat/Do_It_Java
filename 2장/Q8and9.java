@@ -20,15 +20,31 @@ public class DayOfYear {
 		return d;
 	}
 	
+	//개선판
 	static int leftDayOfYear(int y, int m, int d) {
 		int leap = isLeap(y);
-		int days = mdays[leap][m-1]-d;
+		int days = leap==1?366:365;
 		
-		while(++m<=12) days += mdays[leap][m-1];
+		for(int i=m-2;i>=0;i--) {
+			days -= mdays[leap][i];
+		}
+		
+		return days - d;
+	}
+	
+	//첫 시도
+	/*
+	static int leftDayOfYear(int y, int m, int d) {
+		int leap = isLeap(y);
+		int days = mdays[leap][m-1] - d;
+		
+		for(int i=m;i<12;i++) {
+			days += mdays[leap][i];
+		}
 		
 		return days;
 	}
-	
+	*/
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 		int retry;
@@ -41,9 +57,12 @@ public class DayOfYear {
 			System.out.println("일: "); int day = stdIn.nextInt();
 			
 			System.out.printf("올해는 %d일 남았습니다.\n", leftDayOfYear(year, month, day));
+			//System.out.printf("그 해 %d일 째입니다.\n", dayOfYear(year, month, day));
 			
 			System.out.println("한 번 더 할까요? (1.예 / 0. 아니오) : ");
 			retry = stdIn.nextInt();
 		}while(retry==1);
+		
+		stdIn.close();
 	}
 }
