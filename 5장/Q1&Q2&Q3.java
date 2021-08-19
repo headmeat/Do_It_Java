@@ -2,6 +2,17 @@ package john.john;
 import java.util.Scanner;
 
 public class Factorial {
+	static int gcdArray(int[] a) {
+		int idx = 0;
+		int cmp = a[idx];
+		
+		for(int i=idx+1;i<a.length;i++) {
+			cmp = gcd(cmp, a[i]);
+		}
+		
+		return cmp;
+	}
+	
 	static int gcd(int x, int y) {
 		int tmp;
 		
