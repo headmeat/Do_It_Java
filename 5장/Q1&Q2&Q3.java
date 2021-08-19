@@ -2,6 +2,7 @@ package john.john;
 import java.util.Scanner;
 
 public class Factorial {
+	//Q3) 배열 a의 모든 요소의 최대공약수를 구하는 다음 메서드를 작성하세요. 
 	static int gcdArray(int[] a) {
 		int idx = 0;
 		int cmp = a[idx];
@@ -13,6 +14,7 @@ public class Factorial {
 		return cmp;
 	}
 	
+	//Q2) 재귀 메서드 호출을 사용하지 않고 실습 5-2의 gcd 메서드를 작성하세요.
 	static int gcd(int x, int y) {
 		int tmp;
 		
@@ -27,6 +29,7 @@ public class Factorial {
 		return x;
 	}
 	
+	//Q1) 재귀 메서드 호출을 사용하지 않고 실습 5-1의 factorial 메서드를 작성하세요.
 	static int factorial(int n) {
 		int res = 1;
 		
