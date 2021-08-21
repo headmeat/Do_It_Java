@@ -10,7 +10,7 @@ class Hanoi {
 		int stk1[] = new int[100];//시작
 		int stk2[] = new int[100];//목적
 		
-		int wonban[] = new int[] {3, 0, 0};
+		int wonban[] = new int[] {n, 0, 0};
 		
 		int ptr = -1, sw = -1, sw2 = 0, cond = -1;
 		
