@@ -71,6 +71,37 @@ public class SelectionSort {
 		}
 	}
 	
+	//이진 삽입 정렬
+	static void insertSort(int[] arr, int n) {
+		for(int i=1;i<n;i++) {
+			int tmp = arr[i];
+			int idx = binarySearch(Arrays.copyOfRange(arr, 0, i), tmp);//삽입돼야 할 위치
+			
+			for(int j=i;j>idx;j--) {
+				arr[j] = arr[j-1];
+			}
+			
+			arr[idx] = tmp;
+		}
+	}
+	
+	//이진 삽입 정렬: 데이터가 위치해야 할 인덱스 탐색
+	static int binary_Ins_Search(int[] arr, int n) {//tryna find n outta arr
+		int l = 0, r = arr.length-1, c;
+		
+		while(l<=r) {
+			c = (l+r)/2;
+			
+			if(arr[c] == n) return c;
+			else if(arr[c]<n) l = c+1;
+			else r = c-1;
+		}
+		
+		return l; //수정
+		
+		//return -1; //본래
+	}
+	
 	//버블 정렬
 	static void bubbleSort(int[] arr) {
 		int n = arr.length;
