@@ -10,6 +10,24 @@ public class BFMatch {
 		else for(int i=0;i<3*(n/2+1)-1;i++) System.out.print(" ");
 	}*/
 	
+	static int bfMatchLast(String txt, String pat) {
+		int pt = txt.length()-1;
+		int pp = pat.length()-1;
+		
+		while(pt>=0 && pp>=0) {
+			if(txt.charAt(pt) == pat.charAt(pp)) {
+				pt--;pp--;
+			}else {
+				pt = pt - pp + 1;
+				pp = pat.length()-1;
+			}
+		}
+		
+		//if(pt>=0) return pt+1;
+		if(pp<0) return pt - pp;
+		return -1;
+	}
+	
 	//브루트-포스법으로 문자열을 검색하는 메서드
 	static int bfMatch(String txt, String pat) {
 		int pt = 0;//text idx
@@ -57,8 +75,8 @@ public class BFMatch {
 	
 	public static void main(String[] args) {
 		
-		bfMatch("ABABCDEFGHA", "ABC");
-		
+		System.out.println(bfMatchLast("AEFGCDEFGHA", "EFG"));
+		System.out.println("가".getBytes().length);
 		//0, 2, 3, 5, 6, 8, 9, 11
 
 		/*
