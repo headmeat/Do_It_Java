@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 import com.opencsv.CSVWriter;
 
-public class PriorityExample {
+public class ConcentrationTool {
 	static double total = 0.0;
 	static int count = 0;
 	
